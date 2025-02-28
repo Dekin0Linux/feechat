@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { io, Socket } from "socket.io-client";
 
+const BASE_URL = "https://chatapp-thil.onrender.com"
+const BASE_URL2 = "http://localhost:4000"
+
 // Define message structure
 interface Message {
   senderPhone: string;
@@ -14,7 +17,7 @@ interface ChatProps {
 }
 
 // Initialize socket connection
-const socket: Socket = io("http://localhost:4000");
+const socket: Socket = io(BASE_URL);
 
 const Chat: React.FC<ChatProps> = ({ userPhone }) => {
   const [receiverPhone, setReceiverPhone] = useState<string>("");
